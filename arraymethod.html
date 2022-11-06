@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let car = [
+            {
+                company: "TATA",
+                model: "nano",
+                capacity: 3,
+                color: "red",
+            },
+            {
+                company: "Mahindra",
+                model: "XUV 500",
+                capacity: 6,
+                color: "black",
+            },
+        ];
+
+        console.table(car);
+        //console.log(car.length)
+
+        let car1 = {
+            company: "KIA",
+            model: "Seltos",
+            capacity: 5,
+            color: "white",
+        };
+
+        car.unshift(car1);//By using unshift add new element to the beginning of the array.
+        console.table(car);
+
+        let car2 = {
+            company: "TATA",
+            model: "nexon",
+            capacity: 5,
+            color: "red",
+        };
+
+        car.push(car2);//By using push method add a new element to an array at the end
+        console.table(car);
+        console.log(car[0]);
+
+
+        let car3 = {company: "Hyundai",
+             model: "i20",  
+             capacity: 5,
+             color: "blue",
+        };
+
+        car.splice(2,0,car3);//(add new element,remove element)
+        console.table(car);  //splice() method can be used to add new element and also use to remove element.
+
+
+        let redCar = car.find((car) => car.color === 'red');
+        console.log(redCar);  //It return the value of the first element in the given array that satisfies the specified condition
+
+       let carcc = car.find((car) => car.color === "red" && car.company === "TATA");
+        console.log(carcc);
+
+        
+        
+        let carColor = car.filter((car) => car.color === "red");
+        console.table(carColor);
+
+
+
+        let sizes = car.map((car) => {
+            if(car.capacity <= 3){
+              return 'small'
+            }
+            if(car.capacity <= 5){   
+               return 'medium'
+            }
+            return 'large'
+        })
+        console.table(sizes);  //The JavaScript array map() method calls the specified function for every array element and returns the new array. This method doesn't change the original array.
+
+
+        let carProperties = car.map((car) => {
+            let properties ={
+                capacity: car.capacity,
+                size: "large",
+            };
+            if(car.capacity <= 5){
+              properties.size ="medium";
+            };
+            if(car.capacity <= 3){
+              properties.size ="small";
+            };
+            return properties;
+        })
+        console.table(carProperties);
+    </script>
+</body>
+
+</html>
